@@ -20,7 +20,9 @@ import io.socket.emitter.Emitter;
   
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{  
     Button buttonStart, buttonStop,buttonNext; 
-    private Socket mSocket; 
+    private Socket mSocket;
+    
+    Boolean isConnected;
     @Override  
     protected void onCreate(Bundle savedInstanceState) {  
         super.onCreate(savedInstanceState);  
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
 
-        mSocket.off("login", onLogin);
+        // mSocket.off("login", onLogin);
     }
 
     // private Emitter.Listener onLogin = new Emitter.Listener() {
