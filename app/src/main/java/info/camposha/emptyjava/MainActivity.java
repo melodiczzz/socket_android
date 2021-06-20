@@ -6,6 +6,17 @@ import android.os.Bundle;
 import android.view.View;  
 import android.widget.Button; 
 import info.camposha.emptyjava.MyApplication; 
+
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
   
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{  
     Button buttonStart, buttonStop,buttonNext;  
@@ -32,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // perform the user login attempt.
         // mSocket.emit("okay", username);
         mSocket.on("newLink", onNewLink);
-        mSocket.on
+        // mSocket.on
 
         // mSocket.emit("run full time", username);
         // mSocket.on("login", onLogin);
