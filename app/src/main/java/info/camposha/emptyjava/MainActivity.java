@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Emitter.Listener onConnect = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            getActivity().runOnUiThread(new Runnable() {
+           runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     if(!isConnected) {                       
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Emitter.Listener onDisconnect = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            getActivity().runOnUiThread(new Runnable() {
+            runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     // Log.i(TAG, "diconnected");
@@ -91,10 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Emitter.Listener onConnectError = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            getActivity().runOnUiThread(new Runnable() {
+            runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Log.e(TAG, "Error connecting");
+                    // Log.e(TAG, "Error connecting");
                     Toast.makeText(MainActivity.this,
                             "Error Connecting", Toast.LENGTH_LONG).show();
                 }
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             String.valueOf(link), Toast.LENGTH_LONG).show();
 
                     } catch (JSONException e) {
-                        Log.e(TAG, e.getMessage());
+                        Log.e("OnnneLinkEroor", e.getMessage());
                         return;
                     }
                 }
