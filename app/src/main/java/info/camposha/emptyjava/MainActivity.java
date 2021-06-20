@@ -43,16 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
         mSocket.on(Socket.EVENT_CONNECT_TIMEOUT, onConnectError);
 
-        // perform the user login attempt.
-        // mSocket.emit("okay", username);
-        mSocket.on("newLink", onNewLink);
-        // mSocket.on
-
-        // mSocket.emit("run full time", username);
-        // mSocket.on("login", onLogin);
-        // mSocket.emit("add user", username);
-        // mSocket.on("login", onLogin);
-  
+        mSocket.on("newLink", onNewLink);      
   
     }  
 
@@ -63,26 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // mSocket.off("login", onLogin);
     }
 
-    // private Emitter.Listener onLogin = new Emitter.Listener() {
-    //     @Override
-    //     public void call(Object... args) {
-    //         JSONObject data = (JSONObject) args[0];
-
-    //         int numUsers;
-    //         try {
-    //             numUsers = data.getInt("numUsers");
-    //         } catch (JSONException e) {
-    //             return;
-    //         }
-
-    //         Intent intent = new Intent();
-    //         intent.putExtra("username", mUsername);
-    //         intent.putExtra("numUsers", numUsers);
-    //         setResult(RESULT_OK, intent);
-    //         finish();
-    //     }
-    // };
-
+   
 
     private Emitter.Listener onConnect = new Emitter.Listener() {
         @Override
@@ -92,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void run() {
                     if(!isConnected) {                       
                         mSocket.emit("message", "hello this is the first connection");
-                        Toast.makeText(getActivity().getApplicationContext(),
+                        Toast.makeText(MainActivity.this,
                                "We are connected!!!", Toast.LENGTH_LONG).show();
                         isConnected = true;
                     }
@@ -107,9 +79,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Log.i(TAG, "diconnected");
+                    // Log.i(TAG, "diconnected");
                     isConnected = false;
-                    Toast.makeText(getActivity().getApplicationContext(),
+                    Toast.makeText(MainActivity.this,
                             "Disconnected", Toast.LENGTH_LONG).show();
                 }
             });
@@ -123,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void run() {
                     Log.e(TAG, "Error connecting");
-                    Toast.makeText(getActivity().getApplicationContext(),
+                    Toast.makeText(MainActivity.this,
                             "Error Connecting", Toast.LENGTH_LONG).show();
                 }
             });
@@ -141,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     try {
                         link = data.getString("link");
                         // message = data.getString("message");
-                        Toast.makeText(getActivity().getApplicationContext(),
+                        Toast.makeText(MainActivity.this,
                             String.valueOf(link), Toast.LENGTH_LONG).show();
 
                     } catch (JSONException e) {
