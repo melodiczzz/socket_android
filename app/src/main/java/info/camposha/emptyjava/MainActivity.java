@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void run() {
                     // Log.e(TAG, "Error connecting");
                     Toast.makeText(MainActivity.this,
-                            "Error Connecting", Toast.LENGTH_LONG).show();
+                            "Error Connecting" + String.valueOf(args[0]), Toast.LENGTH_LONG).show();
                 }
             });
         }
