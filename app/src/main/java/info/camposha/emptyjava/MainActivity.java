@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Emitter.Listener onNewLink = new Emitter.Listener() {
         @Override
         public void call(final Object... args) {
-            getActivity().runOnUiThread(new Runnable() {
+            runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     JSONObject data = (JSONObject) args[0];
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             String.valueOf(link), Toast.LENGTH_LONG).show();
 
                     } catch (JSONException e) {
-                        Log.e("OnnneLinkEroor", e.getMessage());
+                        // Log.e("OnnneLinkEroor", e.getMessage());fgf
                         return;
                     }
                 }
