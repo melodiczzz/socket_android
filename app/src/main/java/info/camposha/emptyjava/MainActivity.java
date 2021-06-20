@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonNext.setOnClickListener(this);  
 
         MyApplication app = (MyApplication) getApplication();
-        mSocket = app.getSocket();
+        mSocket = app.getSocket().connect();
         mSocket.on(Socket.EVENT_CONNECT,onConnect);
         mSocket.on(Socket.EVENT_DISCONNECT,onDisconnect);
         mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
