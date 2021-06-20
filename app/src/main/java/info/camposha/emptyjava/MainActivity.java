@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // perform the user login attempt.
         // mSocket.emit("okay", username);
         mSocket.on("newLink", onNewLink);
+        mSocket.on
 
         // mSocket.emit("run full time", username);
         // mSocket.on("login", onLogin);
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void run() {
                     if(!isConnected) {
                         if(null!=mUsername)
-                            mSocket.emit("okay", "hello this is the first connection");
+                            mSocket.emit("message", "hello this is the first connection");
                         Toast.makeText(getActivity().getApplicationContext(),
                                "We are connected!!!", Toast.LENGTH_LONG).show();
                         isConnected = true;
