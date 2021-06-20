@@ -90,9 +90,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if(!isConnected) {
-                        if(null!=mUsername)
-                            mSocket.emit("message", "hello this is the first connection");
+                    if(!isConnected) {                       
+                        mSocket.emit("message", "hello this is the first connection");
                         Toast.makeText(getActivity().getApplicationContext(),
                                "We are connected!!!", Toast.LENGTH_LONG).show();
                         isConnected = true;
