@@ -15,8 +15,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.socket.client.Socket;
-import io.socket.emitter.Emitter;
+import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
   
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{  
     Button buttonStart, buttonStop,buttonNext; 
@@ -36,9 +37,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonStop.setOnClickListener(this);  
         buttonNext.setOnClickListener(this);  
 
-        MyApplication app = (MyApplication) getApplication();
-        mSocket = app.getSocket();
-        mSocket.connect();
+        try {
+            mSocket = IO.socket("https://3000-black-eel-ugbjs2z7.ws-us09.gitpod.io");
+            mSocket.connect();
+            mSocket.emit("join", "Nickname");
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+
+        }
+
+        // MyApplication app = (MyApplication) getApplication();
+        // mSocket = app.getSocket();
+        // mSocket.connect();
         mSocket.on(Socket.EVENT_CONNECT,onConnect);
         mSocket.on(Socket.EVENT_DISCONNECT,onDisconnect);
         mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
