@@ -2,8 +2,8 @@ package info.camposha.emptyjava;
 
 import info.camposha.emptyjava.Constants;
 import android.app.Application;
-import io.socket.client.IO;
-import io.socket.client.Socket;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
 
 import java.net.URISyntaxException;
 
