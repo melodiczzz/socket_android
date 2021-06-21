@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button buttonStart, buttonStop,buttonNext; 
     private Socket mSocket;
     
-    Boolean isConnected;
+    Boolean isConnected = false;
     @Override  
     protected void onCreate(Bundle savedInstanceState) {  
         super.onCreate(savedInstanceState);  
