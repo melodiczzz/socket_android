@@ -18,7 +18,8 @@ import java.util.List;
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
-  
+import java.net.URISyntaxException;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{  
     Button buttonStart, buttonStop,buttonNext; 
     private Socket mSocket;
